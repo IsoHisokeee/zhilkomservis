@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет — ЖилКомСервис</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="index.html" class="logo">ЖилКом<span>Сервис</span></a>
+        <button class="hamburger" aria-label="Меню" id="hamburger">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="houses.html">Дома</a></li>
+                <li><a href="tariffs.html">Тарифы</a></li>
+                <li><a href="requests.html">Статус</a></li>
+                <li><a href="about.html">Контакты</a></li>
+                <li><a href="profile.html" style="color:#D4893B;font-weight:600;">Кабинет</a></li>
+                <li id="adminNavItem" style="display:none;"><a href="houses.html#admin" style="color:#D4893B;font-weight:600;">Администрирование</a></li>
+                <li id="authHeader"></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="page-header">
+    <div class="container">
+        <h1>Личный кабинет</h1>
+        <p>Ваши данные и заявки</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div id="profileContent"></div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">ЖилКом<span>Сервис</span></a>
+                <p>Управляющая компания. Обслуживание жилого фонда, текущий и капитальный ремонт.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Меню</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="houses.html">Дома</a></li>
+                    <li><a href="tariffs.html">Тарифы</a></li>
+                    <li><a href="repairs.html">Заявки</a></li>
+                    <li><a href="requests.html">Статус заявок</a></li>
+                    <li><a href="about.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Жителям</h4>
+                <ul>
+                    <li><a href="repairs.html">Подать заявку</a></li>
+                    <li><a href="requests.html">Проверить статус</a></li>
+                    <li><a href="tariffs.html">Тарифы и оплата</a></li>
+                    <li><a href="about.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><a href="#">+7 (495) 123-45-67</a></li>
+                    <li><a href="#">uk@zhilkomservis.ru</a></li>
+                    <li><a href="#">г. Москва, ул. Строителей, д. 5</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <span>&copy; 2026 ЖилКомСервис. Все права защищены.</span>
+            <span>Работаем с заботой о вашем доме</span>
+        </div>
+    </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    initData();
+
+    if (!currentUser) {
+        window.location.href = "auth.html";
+        return;
+    }
+
+    var authEl = document.getElementById("authHeader");
+    authEl.innerHTML = '<span class="user-badge">' + currentUser.name + (currentUser.isAdmin ? ' <span class="admin-tag">админ</span>' : '') + ' <a href="#" onclick="logOut()" style="color:#A0AEC0;font-weight:400;text-decoration:none;margin-left:0.3rem;">выйти</a></span>';
+
+    if (currentUser.isAdmin) {
+        document.getElementById("adminNavItem").style.display = "";
+    }
+
+    var content = document.getElementById("profileContent");
+
+    var userRequests = requests.filter(function(r) { return r.residentName === currentUser.name; });
+    var pendingCount = userRequests.filter(function(r) { return r.status === "pending"; }).length;
+    var workingCount = userRequests.filter(function(r) { return r.status === "working"; }).length;
+    var doneCount = userRequests.filter(function(r) { return r.status === "done"; }).length;
+
+    content.innerHTML =
+        '<div class="profile-grid">' +
+            '<div class="profile-card">' +
+                '<h2>Профиль</h2>' +
+                '<div class="profile-row"><span class="profile-label">Имя</span><span class="profile-val" id="profileName">' + currentUser.name + '</span></div>' +
+                '<div class="profile-row"><span class="profile-label">Email</span><span class="profile-val">' + currentUser.email + '</span></div>' +
+                '<div class="profile-row"><span class="profile-label">Роль</span><span class="profile-val">' + (currentUser.isAdmin ? 'Администратор' : 'Житель') + '</span></div>' +
+                '<div class="profile-row"><span class="profile-label">Дата регистрации</span><span class="profile-val">' + formatDate(currentUser.registeredAt) + '</span></div>' +
+                '<div style="margin-top:1.2rem;display:flex;gap:0.5rem;">' +
+                    '<button class="btn btn-primary btn-sm" onclick="editProfileName()">Изменить имя</button>' +
+                    '<button class="btn btn-ghost btn-sm" onclick="logOut()">Выйти</button>' +
+                '</div>' +
+            '</div>' +
+            '<div class="profile-card">' +
+                '<h2>Статистика заявок</h2>' +
+                '<div class="profile-stats">' +
+                    '<div class="profile-stat"><div class="num" style="color:#D4893B;">' + pendingCount + '</div><div class="label">ожидают</div></div>' +
+                    '<div class="profile-stat"><div class="num" style="color:#2B6CB0;">' + workingCount + '</div><div class="label">в работе</div></div>' +
+                    '<div class="profile-stat"><div class="num" style="color:#48BB78;">' + doneCount + '</div><div class="label">выполнено</div></div>' +
+                    '<div class="profile-stat"><div class="num" style="color:#1B6B8A;">' + userRequests.length + '</div><div class="label">всего</div></div>' +
+                '</div>' +
+                '<a href="repairs.html" class="btn btn-primary btn-sm" style="margin-top:0.8rem;">Подать заявку</a>' +
+            '</div>' +
+        '</div>' +
+        '<div class="profile-requests">' +
+            '<h2>Мои заявки</h2>' +
+            '<div id="profileRequestsList"></div>' +
+        '</div>';
+
+    var reqContainer = document.getElementById("profileRequestsList");
+
+    if (userRequests.length === 0) {
+        reqContainer.innerHTML = '<div class="empty-state"><p>У вас пока нет заявок</p></div>';
+    } else {
+        reqContainer.innerHTML = userRequests.map(function(r) {
+            var house = getHouseById(r.houseId);
+            var address = house ? house.address : "Неизвестный адрес";
+            var typeLabel = r.type.charAt(0).toUpperCase() + r.type.slice(1);
+
+            return '<div class="request-card">' +
+                '<div class="request-info">' +
+                    '<h3>' + address + ' — кв. ' + r.apartment + '</h3>' +
+                    '<p class="request-meta">' + typeLabel + ' / ' + formatDate(r.date) + '</p>' +
+                    '<p>' + r.description + '</p>' +
+                '</div>' +
+                '<div class="request-side">' +
+                    '<span class="request-status ' + getRequestStatusClass(r.status) + '">' + getRequestStatusLabel(r.status) + '</span>' +
+                    (r.status === "pending" ? '<button class="btn btn-danger btn-sm" onclick="cancelRequest(' + r.id + ')" style="margin-top:0.3rem;">Отменить</button>' : '') +
+                '</div></div>';
+        }).join("");
+    }
+
+    var hamburger = document.getElementById("hamburger");
+    var nav = document.querySelector("nav");
+    if (hamburger && nav) {
+        hamburger.addEventListener("click", function() {
+            nav.classList.toggle("open");
+        });
+    }
+
+    var header = document.querySelector("header");
+    window.addEventListener("scroll", function() {
+        if (window.scrollY > 10) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
+});
+
+function editProfileName() {
+    var name = prompt("Новое имя:", currentUser.name);
+    if (name && name.trim()) {
+        currentUser.name = name.trim();
+        var user = users.find(function(u) { return u.email === currentUser.email; });
+        if (user) {
+            user.name = name.trim();
+            saveUsers();
+        }
+        sessionStorage.setItem("zks_current", JSON.stringify(currentUser));
+        document.getElementById("profileName").textContent = name.trim();
+        showToast("Имя обновлено", "success");
+    }
+}
+</script>
+</body>
+</html>

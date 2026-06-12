@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 300" width="380" height="300">
+  <rect width="380" height="300" fill="#B8B0A8"/>
+  <rect x="8" y="8" width="364" height="292" fill="#D4CCC4" rx="2"/>
+  <rect y="0" width="380" height="10" fill="#A09890"/>
+  <rect y="295" width="380" height="5" fill="#A09890"/>
+  <!-- Panel seams -->
+  <line x1="95" y1="8" x2="95" y2="295" stroke="#BFB8B0" stroke-width="1.5"/>
+  <line x1="190" y1="8" x2="190" y2="295" stroke="#BFB8B0" stroke-width="1.5"/>
+  <line x1="285" y1="8" x2="285" y2="295" stroke="#BFB8B0" stroke-width="1.5"/>
+  <!-- Small windows (Khrushchevka style) -->
+  <rect x="20" y="22" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <rect x="110" y="22" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <rect x="205" y="22" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <rect x="300" y="22" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <!-- Row 2 -->
+  <rect x="20" y="60" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <rect x="110" y="60" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <rect x="205" y="60" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <rect x="300" y="60" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <!-- Row 3 -->
+  <rect x="20" y="98" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <rect x="110" y="98" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <rect x="205" y="98" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <rect x="300" y="98" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <!-- Row 4 -->
+  <rect x="20" y="136" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <rect x="110" y="136" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <rect x="205" y="136" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <rect x="300" y="136" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <!-- Row 5 -->
+  <rect x="20" y="174" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <rect x="110" y="174" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <rect x="205" y="174" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <rect x="300" y="174" width="25" height="28" fill="#8CB3D9" rx="1"/>
+  <!-- Balcony stripes -->
+  <rect x="15" y="50" width="35" height="2" fill="#A09890"/>
+  <rect x="105" y="50" width="35" height="2" fill="#A09890"/>
+  <rect x="200" y="50" width="35" height="2" fill="#A09890"/>
+  <rect x="295" y="50" width="35" height="2" fill="#A09890"/>
+  <rect x="15" y="128" width="35" height="2" fill="#A09890"/>
+  <rect x="105" y="128" width="35" height="2" fill="#A09890"/>
+  <rect x="200" y="128" width="35" height="2" fill="#A09890"/>
+  <rect x="295" y="128" width="35" height="2" fill="#A09890"/>
+  <!-- Peeling paint patches -->
+  <rect x="110" y="60" width="8" height="6" fill="#C8B8A0" rx="1" opacity="0.5"/>
+  <rect x="205" y="175" width="10" height="5" fill="#C8B8A0" rx="1" opacity="0.5"/>
+  <!-- Door -->
+  <rect x="152" y="255" width="76" height="40" fill="#7A6A5A" rx="2"/>
+  <rect x="160" y="260" width="60" height="35" fill="#9C8C7C" rx="1"/>
+  <rect x="162" y="263" width="26" height="30" fill="#B8A898" rx="1"/>
+  <rect x="192" y="263" width="26" height="30" fill="#B8A898" rx="1"/>
+  <circle cx="190" cy="278" r="3" fill="#D4893B"/>
+  <!-- Cracks -->
+  <line x1="275" y1="30" x2="280" y2="50" stroke="#8B8078" stroke-width="0.5"/>
+  <line x1="280" y1="50" x2="278" y2="70" stroke="#8B8078" stroke-width="0.5"/>
+  <!-- Ground -->
+  <rect x="0" y="295" width="380" height="5" fill="#6B8E5A"/>
+</svg>

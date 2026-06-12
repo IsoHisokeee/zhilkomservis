@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 300" width="380" height="300">
+  <rect width="380" height="300" fill="#A25B3E"/>
+  <rect x="5" y="10" width="370" height="290" fill="#C4774E" rx="3"/>
+  <rect y="0" width="380" height="12" fill="#8B4A30"/>
+  <!-- Cornice decorations -->
+  <rect y="0" width="380" height="5" fill="#7A3F28"/>
+  <rect y="5" width="380" height="3" fill="#D4893B"/>
+  <!-- Brick pattern -->
+  <g stroke="#B05D3A" stroke-width="0.5" opacity="0.3">
+    <line x1="0" y1="30" x2="380" y2="30"/><line x1="0" y1="35" x2="380" y2="35"/>
+    <line x1="0" y1="70" x2="380" y2="70"/><line x1="0" y1="75" x2="380" y2="75"/>
+    <line x1="0" y1="110" x2="380" y2="110"/><line x1="0" y1="115" x2="380" y2="115"/>
+    <line x1="0" y1="150" x2="380" y2="150"/><line x1="0" y1="155" x2="380" y2="155"/>
+    <line x1="0" y1="190" x2="380" y2="190"/><line x1="0" y1="195" x2="380" y2="195"/>
+    <line x1="0" y1="230" x2="380" y2="230"/><line x1="0" y1="235" x2="380" y2="235"/>
+  </g>
+  <!-- Tall windows (Stalin-style) -->
+  <rect x="30" y="25" width="40" height="65" fill="#E8D5B7" rx="2"/>
+  <rect x="32" y="27" width="36" height="61" fill="#9BB7D4" rx="1"/>
+  <rect x="108" y="25" width="40" height="65" fill="#E8D5B7" rx="2"/>
+  <rect x="110" y="27" width="36" height="61" fill="#9BB7D4" rx="1"/>
+  <rect x="230" y="25" width="40" height="65" fill="#E8D5B7" rx="2"/>
+  <rect x="232" y="27" width="36" height="61" fill="#9BB7D4" rx="1"/>
+  <rect x="310" y="25" width="40" height="65" fill="#E8D5B7" rx="2"/>
+  <rect x="312" y="27" width="36" height="61" fill="#9BB7D4" rx="1"/>
+  <!-- Row 2 windows -->
+  <rect x="30" y="110" width="40" height="65" fill="#E8D5B7" rx="2"/>
+  <rect x="32" y="112" width="36" height="61" fill="#9BB7D4" rx="1"/>
+  <rect x="108" y="110" width="40" height="65" fill="#E8D5B7" rx="2"/>
+  <rect x="110" y="112" width="36" height="61" fill="#9BB7D4" rx="1"/>
+  <rect x="230" y="110" width="40" height="65" fill="#E8D5B7" rx="2"/>
+  <rect x="232" y="112" width="36" height="61" fill="#9BB7D4" rx="1"/>
+  <rect x="310" y="110" width="40" height="65" fill="#E8D5B7" rx="2"/>
+  <rect x="312" y="112" width="36" height="61" fill="#9BB7D4" rx="1"/>
+  <!-- Row 3 -->
+  <rect x="30" y="195" width="40" height="65" fill="#E8D5B7" rx="2"/>
+  <rect x="32" y="197" width="36" height="61" fill="#9BB7D4" rx="1"/>
+  <rect x="108" y="195" width="40" height="65" fill="#E8D5B7" rx="2"/>
+  <rect x="110" y="197" width="36" height="61" fill="#9BB7D4" rx="1"/>
+  <rect x="230" y="195" width="40" height="65" fill="#E8D5B7" rx="2"/>
+  <rect x="232" y="197" width="36" height="61" fill="#9BB7D4" rx="1"/>
+  <rect x="310" y="195" width="40" height="65" fill="#E8D5B7" rx="2"/>
+  <rect x="312" y="197" width="36" height="61" fill="#9BB7D4" rx="1"/>
+  <!-- Door -->
+  <rect x="165" y="250" width="50" height="50" fill="#5C3A24" rx="3"/>
+  <rect x="172" y="257" width="36" height="43" fill="#7A5038" rx="2"/>
+  <rect x="180" y="265" width="20" height="28" fill="#A0896E" rx="1"/>
+  <!-- Decorative elements -->
+  <rect x="20" y="12" width="45" height="8" fill="#D4893B" rx="2"/>
+  <rect x="160" y="12" width="60" height="8" fill="#D4893B" rx="2"/>
+  <rect x="315" y="12" width="45" height="8" fill="#D4893B" rx="2"/>
+  <!-- Pillars -->
+  <rect x="185" y="245" width="5" height="55" fill="#8B4A30"/>
+  <rect x="190" y="245" width="5" height="55" fill="#8B4A30"/>
+  <!-- Ground -->
+  <rect x="0" y="295" width="380" height="5" fill="#6B8E5A"/>
+</svg>

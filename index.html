@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЖилКомСервис — Управляющая компания</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="index.html" class="logo">ЖилКом<span>Сервис</span></a>
+        <button class="hamburger" aria-label="Меню" id="hamburger">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="houses.html">Дома</a></li>
+                <li><a href="tariffs.html">Тарифы</a></li>
+                <li><a href="requests.html">Статус</a></li>
+                <li><a href="about.html">Контакты</a></li>
+                <li><a href="profile.html">Кабинет</a></li>
+                <li id="adminNavItem" style="display:none;"><a href="houses.html#admin" style="color:#D4893B;font-weight:600;">Администрирование</a></li>
+                <li id="authHeader"></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>Управляем домом с заботой</h1>
+        <p>Обслуживание жилого фонда, текущий и капитальный ремонт за счёт платежей населения и бюджетных субсидий.</p>
+        <div class="hero-buttons">
+            <a href="houses.html" class="btn btn-white">Наши дома</a>
+            <a href="repairs.html" class="btn btn-outline-light">Подать заявку</a>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="num">8</div>
+                <div class="label">домов в управлении</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">1 046</div>
+                <div class="label">квартир</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">15</div>
+                <div class="label">лет на рынке</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">98%</div>
+                <div class="label">собираемость платежей</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-services">
+    <div class="container">
+        <div class="section-header">
+            <h2>Услуги</h2>
+            <p>Содержание и ремонт общего имущества многоквартирных домов</p>
+        </div>
+        <div class="carousel-wrap">
+            <button class="carousel-arrow carousel-arrow-left" id="carouselPrev" aria-label="Предыдущая">&#8249;</button>
+            <div class="carousel-track" id="carouselTrack">
+                <div class="service-card">
+                    <h3>Содержание жилья</h3>
+                    <p>Уборка подъездов и придомовой территории, вывоз твёрдых бытовых отходов, обслуживание внутридомовых инженерных систем, дератизация и дезинсекция.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Текущий ремонт</h3>
+                    <p>Мелкий ремонт подъездов, замена осветительных приборов, ремонт дверей и окон, устранение протечек, мелкие штукатурные и малярные работы.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Капитальный ремонт</h3>
+                    <p>Замена кровли, ремонт фасада, замена лифтового оборудования, модернизация инженерных сетей. Финансируется за счёт фонда капремонта и бюджетных субсидий.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Благоустройство</h3>
+                    <p>Озеленение и ландшафтный дизайн, установка и ремонт детских и спортивных площадок, ремонт тротуаров и проездов, наружное освещение.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Аварийная служба</h3>
+                    <p>Круглосуточная диспетчерская служба. Устранение аварийных ситуаций на инженерных сетях: засоры канализации, прорывы труб, отключение электроэнергии.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Юридическая помощь</h3>
+                    <p>Консультации жильцов по вопросам ЖКХ, подготовка документов для субсидий, представление интересов в судах и государственных органах.</p>
+                </div>
+            </div>
+            <button class="carousel-arrow carousel-arrow-right" id="carouselNext" aria-label="Следующая">&#8250;</button>
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-houses">
+    <div class="container">
+        <div class="section-header">
+            <h2>Дома под управлением</h2>
+            <p>Адреса и основные характеристики</p>
+        </div>
+        <div class="index-houses-list">
+            <div class="index-house-item">
+                <span class="index-house-addr">ул. Ленина, д. 15</span>
+                <span class="index-house-year">1985 г.</span>
+                <span class="index-house-floors">9 эт.</span>
+                <span class="index-house-apt">144 кв.</span>
+                <span class="index-house-status status-good">хорошее</span>
+            </div>
+            <div class="index-house-item">
+                <span class="index-house-addr">пр. Мира, д. 42</span>
+                <span class="index-house-year">1972 г.</span>
+                <span class="index-house-floors">5 эт.</span>
+                <span class="index-house-apt">80 кв.</span>
+                <span class="index-house-status status-satisfactory">удовлетворительное</span>
+            </div>
+            <div class="index-house-item">
+                <span class="index-house-addr">ул. Садовая, д. 8</span>
+                <span class="index-house-year">2005 г.</span>
+                <span class="index-house-floors">14 эт.</span>
+                <span class="index-house-apt">196 кв.</span>
+                <span class="index-house-status status-good">хорошее</span>
+            </div>
+            <div class="index-house-item">
+                <span class="index-house-addr">ул. Советская, д. 23</span>
+                <span class="index-house-year">1968 г.</span>
+                <span class="index-house-floors">5 эт.</span>
+                <span class="index-house-apt">60 кв.</span>
+                <span class="index-house-status status-bad">требует ремонта</span>
+            </div>
+            <div class="index-house-item">
+                <span class="index-house-addr">ул. Парковая, д. 3</span>
+                <span class="index-house-year">1999 г.</span>
+                <span class="index-house-floors">10 эт.</span>
+                <span class="index-house-apt">120 кв.</span>
+                <span class="index-house-status status-good">хорошее</span>
+            </div>
+            <div class="index-house-item">
+                <span class="index-house-addr">пер. Школьный, д. 7</span>
+                <span class="index-house-year">1978 г.</span>
+                <span class="index-house-floors">9 эт.</span>
+                <span class="index-house-apt">108 кв.</span>
+                <span class="index-house-status status-satisfactory">удовлетворительное</span>
+            </div>
+            <div class="index-house-item">
+                <span class="index-house-addr">ул. Речная, д. 12</span>
+                <span class="index-house-year">2010 г.</span>
+                <span class="index-house-floors">17 эт.</span>
+                <span class="index-house-apt">238 кв.</span>
+                <span class="index-house-status status-good">хорошее</span>
+            </div>
+            <div class="index-house-item">
+                <span class="index-house-addr">ул. Лесная, д. 5</span>
+                <span class="index-house-year">1965 г.</span>
+                <span class="index-house-floors">5 эт.</span>
+                <span class="index-house-apt">100 кв.</span>
+                <span class="index-house-status status-bad">требует ремонта</span>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:2rem;">
+            <a href="houses.html" class="btn btn-outline">Смотреть все дома</a>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="section-header">
+            <h2>Тарифы и финансирование</h2>
+            <p>Из чего складываются платежи и куда идут средства</p>
+        </div>
+        <div class="tariff-summary" id="indexFundSummary"></div>
+        <p style="text-align:center;font-size:0.88rem;color:#718096;max-width:700px;margin:1.5rem auto 0;">
+            Финансирование ремонтов осуществляется за счёт ежемесячных платежей собственников
+            (тариф на содержание жилья + взнос на капремонт) и бюджетных субсидий в рамках
+            региональной программы капитального ремонта. Средства каждого дома учитываются
+            на отдельном лицевом счёте. Отчёт о расходовании — на странице
+            <a href="tariffs.html" style="color:#1B6B8A;text-decoration:underline;">тарифов и отчётности</a>.
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Новости и объявления</h2>
+            <p>Информация для жителей</p>
+        </div>
+        <div class="news-list">
+            <div class="news-item">
+                <div class="news-item-date">01.06.2026</div>
+                <div class="news-item-body">
+                    <h3>Завершён капитальный ремонт кровли на ул. Ленина, 15</h3>
+                    <p>Работы выполнены в срок. Использованы современные гидроизоляционные материалы, дана гарантия 5 лет.</p>
+                </div>
+            </div>
+            <div class="news-item">
+                <div class="news-item-date">25.05.2026</div>
+                <div class="news-item-body">
+                    <h3>Благоустройство двора на пр. Мира, 42</h3>
+                    <p>Установлена новая детская площадка, высажены кустарники, обновлены скамейки и урны.</p>
+                </div>
+            </div>
+            <div class="news-item">
+                <div class="news-item-date">15.05.2026</div>
+                <div class="news-item-body">
+                    <h3>График отключения горячей воды на летний период</h3>
+                    <p>Плановые отключения продлятся с 15 по 30 июля. Приносим извинения за временные неудобства.</p>
+                </div>
+            </div>
+            <div class="news-item">
+                <div class="news-item-date">01.05.2026</div>
+                <div class="news-item-body">
+                    <h3>Отчёт о расходовании средств за I квартал 2026 года</h3>
+                    <p>Отчёт опубликован на досках объявлений в каждом подъезде. По запросу направляем на электронную почту.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-contacts">
+    <div class="container">
+        <div class="contacts-bar">
+            <div class="contacts-bar-item">
+                <span class="contacts-bar-label">Офис</span>
+                <span>г. Москва, ул. Строителей, д. 5</span>
+            </div>
+            <div class="contacts-bar-item">
+                <span class="contacts-bar-label">Телефон</span>
+                <span>+7 (495) 123-45-67</span>
+            </div>
+            <div class="contacts-bar-item">
+                <span class="contacts-bar-label">Почта</span>
+                <span>uk@zhilkomservis.ru</span>
+            </div>
+            <div class="contacts-bar-item">
+                <span class="contacts-bar-label">Приём</span>
+                <span>Пн–Пт 09:00–18:00, Сб 10:00–15:00</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">ЖилКом<span>Сервис</span></a>
+                <p>Управляющая компания. Обслуживание жилого фонда, текущий и капитальный ремонт за счёт платежей населения и бюджетных субсидий.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Меню</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="houses.html">Дома</a></li>
+                    <li><a href="tariffs.html">Тарифы</a></li>
+                    <li><a href="repairs.html">Заявки</a></li>
+                    <li><a href="requests.html">Статус заявок</a></li>
+                    <li><a href="about.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Жителям</h4>
+                <ul>
+                    <li><a href="repairs.html">Подать заявку</a></li>
+                    <li><a href="requests.html">Проверить статус</a></li>
+                    <li><a href="tariffs.html">Тарифы и оплата</a></li>
+                    <li><a href="about.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><a href="#">+7 (495) 123-45-67</a></li>
+                    <li><a href="#">uk@zhilkomservis.ru</a></li>
+                    <li><a href="#">г. Москва, ул. Строителей, д. 5</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <span>&copy; 2026 ЖилКомСервис. Все права защищены.</span>
+            <span>Работаем с заботой о вашем доме</span>
+        </div>
+    </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    initData();
+
+    var authEl = document.getElementById("authHeader");
+    if (currentUser) {
+        authEl.innerHTML = '<span class="user-badge"><a href="profile.html" style="color:inherit;text-decoration:none;">' + currentUser.name + '</a>' + (currentUser.isAdmin ? ' <span class="admin-tag">админ</span>' : '') + ' <a href="#" onclick="logOut()" style="color:#A0AEC0;font-weight:400;text-decoration:none;margin-left:0.3rem;">выйти</a></span>';
+        if (currentUser.isAdmin) {
+            document.getElementById("adminNavItem").style.display = "";
+        }
+    } else {
+        authEl.innerHTML = '<a href="auth.html" class="btn btn-primary btn-sm">Войти</a>';
+    }
+
+    var totalCollected = houses.reduce(function(s, h) { return s + (h.fundCollected || 0); }, 0);
+    var totalNeeded = houses.reduce(function(s, h) { return s + (h.fundTarget || 0); }, 0);
+    var totalSpent = houses.reduce(function(s, h) { return s + (h.fundSpent || 0); }, 0);
+    var solvency = houses.reduce(function(s, h) { return s + (h.apartments || 0); }, 0);
+    var fundSummary = document.getElementById("indexFundSummary");
+    if (fundSummary) {
+        fundSummary.innerHTML =
+            '<div class="tariff-summary-card"><div class="num">' + formatMoney(totalCollected) + '</div><div class="label">собрано, тыс. руб.</div></div>' +
+            '<div class="tariff-summary-card"><div class="num">' + formatMoney(totalSpent) + '</div><div class="label">потрачено, тыс. руб.</div></div>' +
+            '<div class="tariff-summary-card"><div class="num">' + solvency + '</div><div class="label">квартир в управлении</div></div>' +
+            '<div class="tariff-summary-card"><div class="num">98%</div><div class="label">собираемость платежей</div></div>';
+    }
+
+    var hamburger = document.getElementById("hamburger");
+    var nav = document.querySelector("nav");
+    if (hamburger && nav) {
+        hamburger.addEventListener("click", function() {
+            nav.classList.toggle("open");
+        });
+    }
+
+    var header = document.querySelector("header");
+    window.addEventListener("scroll", function() {
+        if (window.scrollY > 10) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
+
+    // Carousel
+    var track = document.getElementById("carouselTrack");
+    if (track) {
+        var cards = Array.prototype.slice.call(track.querySelectorAll(".service-card"));
+        var N = cards.length;
+        var wrap = track.parentElement;
+        var cur = 0;
+        var timer;
+        var gap = 24;
+
+        var dotsEl = document.getElementById("carouselDots");
+
+        function render(smooth, speed) {
+            var cw = cards[0].offsetWidth;
+            var vw = wrap.offsetWidth;
+            var offset = cur * (cw + gap) - (vw - cw) / 2;
+            var dur = speed || 0.5;
+            track.style.transition = smooth ? "transform " + dur + "s cubic-bezier(0.25,0.46,0.45,0.94)" : "none";
+            track.style.transform = "translateX(" + (-offset) + "px)";
+            for (var i = 0; i < cards.length; i++) {
+                cards[i].classList.toggle("active", i === cur);
+            }
+            var btns = dotsEl.querySelectorAll("button");
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].classList.toggle("active", i === cur);
+            }
+        }
+
+        function next() {
+            cur = (cur + 1) % N;
+            render(cur !== 0);
+        }
+
+        function prev() {
+            cur = (cur - 1 + N) % N;
+            render(cur !== N - 1);
+        }
+
+        function autoStart() {
+            clearInterval(timer);
+            timer = setInterval(next, 4000);
+        }
+
+        // Dots
+        for (var i = 0; i < N; i++) {
+            var btn = document.createElement("button");
+            btn.setAttribute("aria-label", "Услуга " + (i + 1));
+            (function(idx) {
+                btn.addEventListener("click", function() { cur = idx; render(true); autoStart(); });
+            })(i);
+            dotsEl.appendChild(btn);
+        }
+
+        document.getElementById("carouselPrev").addEventListener("click", function() { prev(); autoStart(); });
+        document.getElementById("carouselNext").addEventListener("click", function() { next(); autoStart(); });
+
+        render(false);
+        autoStart();
+
+        window.addEventListener("resize", function() { render(false); });
+    }
+});
+</script>
+</body>
+</html>

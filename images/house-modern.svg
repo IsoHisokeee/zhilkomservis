@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 300" width="350" height="300">
+  <rect width="350" height="300" fill="#B8C5D0"/>
+  <rect x="5" y="5" width="340" height="295" fill="#E2E8F0" rx="2"/>
+  <!-- Large modern windows -->
+  <rect x="15" y="15" width="70" height="80" fill="#6BA3C7" rx="2"/>
+  <rect x="100" y="15" width="70" height="80" fill="#6BA3C7" rx="2"/>
+  <rect x="185" y="15" width="70" height="80" fill="#6BA3C7" rx="2"/>
+  <rect x="270" y="15" width="65" height="80" fill="#6BA3C7" rx="2"/>
+  <!-- Row 2 -->
+  <rect x="15" y="110" width="70" height="80" fill="#6BA3C7" rx="2"/>
+  <rect x="100" y="110" width="70" height="80" fill="#6BA3C7" rx="2"/>
+  <rect x="185" y="110" width="70" height="80" fill="#6BA3C7" rx="2"/>
+  <rect x="270" y="110" width="65" height="80" fill="#6BA3C7" rx="2"/>
+  <!-- Row 3 -->
+  <rect x="15" y="205" width="70" height="55" fill="#6BA3C7" rx="2"/>
+  <rect x="100" y="205" width="70" height="55" fill="#6BA3C7" rx="2"/>
+  <rect x="185" y="205" width="70" height="55" fill="#6BA3C7" rx="2"/>
+  <rect x="270" y="205" width="65" height="55" fill="#6BA3C7" rx="2"/>
+  <!-- Glass panel effect -->
+  <g stroke="#A0C4E8" stroke-width="0.8" opacity="0.5">
+    <line x1="50" y1="15" x2="50" y2="95"/><line x1="15" y1="55" x2="85" y2="55"/>
+    <line x1="135" y1="15" x2="135" y2="95"/><line x1="100" y1="55" x2="170" y2="55"/>
+    <line x1="220" y1="15" x2="220" y2="95"/><line x1="185" y1="55" x2="255" y2="55"/>
+    <line x1="302" y1="15" x2="302" y2="95"/><line x1="270" y1="55" x2="335" y2="55"/>
+    <line x1="50" y1="110" x2="50" y2="190"/><line x1="15" y1="150" x2="85" y2="150"/>
+    <line x1="135" y1="110" x2="135" y2="190"/><line x1="100" y1="150" x2="170" y2="150"/>
+    <line x1="220" y1="110" x2="220" y2="190"/><line x1="185" y1="150" x2="255" y2="150"/>
+    <line x1="302" y1="110" x2="302" y2="190"/><line x1="270" y1="150" x2="335" y2="150"/>
+  </g>
+  <!-- Balcony -->
+  <rect x="15" y="95" width="70" height="3" fill="#A0AEC0"/>
+  <rect x="100" y="95" width="70" height="3" fill="#A0AEC0"/>
+  <rect x="185" y="95" width="70" height="3" fill="#A0AEC0"/>
+  <rect x="270" y="95" width="65" height="3" fill="#A0AEC0"/>
+  <!-- Entrance -->
+  <rect x="140" y="265" width="70" height="35" fill="#4A5568" rx="4"/>
+  <rect x="148" y="270" width="54" height="30" fill="#718096" rx="2"/>
+  <rect x="160" y="278" width="30" height="15" fill="#A0AEC0" rx="1"/>
+  <circle cx="175" cy="290" r="3" fill="#D4893B"/>
+  <!-- Modern stripes -->
+  <rect x="0" y="0" width="350" height="4" fill="#1B6B8A"/>
+  <!-- Ground -->
+  <rect x="0" y="295" width="350" height="5" fill="#6B8E5A"/>
+  <!-- Trees -->
+  <circle cx="15" cy="285" r="10" fill="#68A86B" opacity="0.5"/>
+  <circle cx="335" cy="288" r="8" fill="#68A86B" opacity="0.5"/>
+</svg>

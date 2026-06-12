@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тарифы — ЖилКомСервис</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="index.html" class="logo">ЖилКом<span>Сервис</span></a>
+        <button class="hamburger" aria-label="Меню" id="hamburger">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="houses.html">Дома</a></li>
+                <li><a href="tariffs.html">Тарифы</a></li>
+                <li><a href="requests.html">Статус</a></li>
+                <li><a href="about.html">Контакты</a></li>
+                <li><a href="profile.html">Кабинет</a></li>
+                <li id="adminNavItem" style="display:none;"><a href="houses.html#admin" style="color:#D4893B;font-weight:600;">Администрирование</a></li>
+                <li id="authHeader"></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="page-header">
+    <div class="container">
+        <h1>Тарифы и отчётность</h1>
+        <p>Ставки на жилищно-коммунальные услуги, план ремонтов и целевые сборы</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Сводная информация</h2>
+            <p>Собираемость и расходование средств по итогам 2025–2026 гг.</p>
+        </div>
+        <div class="tariff-summary" id="tariffSummary"></div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="section-header">
+            <h2>Тарифы на жилищно-коммунальные услуги</h2>
+            <p>Действуют с 1 января 2026 года</p>
+        </div>
+        <div style="overflow-x:auto;">
+            <table class="tariff-table" id="tariffTable"></table>
+        </div>
+        <div class="tariff-note">
+            <strong>Обратите внимание:</strong> тарифы на коммунальные услуги (отопление, вода, электроэнергия)
+            устанавливаются региональной службой по тарифам. Размер платы за содержание жилья ежегодно
+            утверждается на общем собрании собственников. Целевые взносы на капитальный ремонт
+             перечисляются в фонд капитального ремонта многоквартирного дома.
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Расходование средств</h2>
+            <p>Статьи расходов на ремонт и благоустройство</p>
+        </div>
+        <div style="overflow-x:auto;">
+            <table class="expense-table" id="expenseTable"></table>
+        </div>
+        <div class="tariff-note" style="background:#F0FFF4;border-left-color:#48BB78;">
+            <strong>Отчётность:</strong> ежеквартальные отчёты о расходовании средств публикуются на досках
+            объявлений в каждом подъезде. По запросу направляем копию на электронную почту.
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="section-header">
+            <h2>Внести платеж</h2>
+            <p>Оплатить содержание жилья и целевые взносы</p>
+        </div>
+        <div class="form-card payment-form">
+            <form id="paymentForm">
+                <div class="form-group">
+                    <label for="payHouse">Адрес дома</label>
+                    <select id="payHouse" required>
+                        <option value="">Выберите дом</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="payApartment">Номер квартиры</label>
+                    <input type="text" id="payApartment" required placeholder="42">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="payFio">ФИО плательщика</label>
+                        <input type="text" id="payFio" required placeholder="Иванов Иван Иванович">
+                    </div>
+                    <div class="form-group">
+                        <label for="payAmount">Сумма (руб.)</label>
+                        <input type="number" id="payAmount" required placeholder="1500" min="1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="payPurpose">Назначение платежа</label>
+                    <select id="payPurpose">
+                        <option value="content">Содержание жилья</option>
+                        <option value="repair">Текущий ремонт</option>
+                        <option value="capital">Взнос на капитальный ремонт</option>
+                        <option value="target">Целевой сбор</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Сформировать квитанцию</button>
+            </form>
+            <div id="paymentResult" style="margin-top:1rem;display:none;"></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">ЖилКом<span>Сервис</span></a>
+                <p>Управляющая компания. Обслуживание жилого фонда, текущий и капитальный ремонт за счёт платежей населения и бюджетных субсидий.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Меню</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="houses.html">Дома</a></li>
+                    <li><a href="tariffs.html">Тарифы</a></li>
+                    <li><a href="repairs.html">Заявки</a></li>
+                    <li><a href="requests.html">Статус заявок</a></li>
+                    <li><a href="about.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Жителям</h4>
+                <ul>
+                    <li><a href="repairs.html">Подать заявку</a></li>
+                    <li><a href="requests.html">Проверить статус</a></li>
+                    <li><a href="tariffs.html">Тарифы и оплата</a></li>
+                    <li><a href="about.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><a href="#">+7 (495) 123-45-67</a></li>
+                    <li><a href="#">uk@zhilkomservis.ru</a></li>
+                    <li><a href="#">г. Москва, ул. Строителей, д. 5</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <span>&copy; 2026 ЖилКомСервис. Все права защищены.</span>
+            <span>Работаем с заботой о вашем доме</span>
+        </div>
+    </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    initData();
+
+    var authEl = document.getElementById("authHeader");
+    if (currentUser) {
+        authEl.innerHTML = '<span class="user-badge"><a href="profile.html" style="color:inherit;text-decoration:none;">' + currentUser.name + '</a>' + (currentUser.isAdmin ? ' <span class="admin-tag">админ</span>' : '') + ' <a href="#" onclick="logOut()" style="color:#A0AEC0;font-weight:400;text-decoration:none;margin-left:0.3rem;">выйти</a></span>';
+        if (currentUser.isAdmin) {
+            document.getElementById("adminNavItem").style.display = "";
+        }
+    } else {
+        authEl.innerHTML = '<a href="auth.html" class="btn btn-primary btn-sm">Войти</a>';
+    }
+
+    var totalCollected = 0;
+    var totalNeeded = 0;
+    houses.forEach(function(h) {
+        totalCollected += h.fundCollected || 0;
+        totalNeeded += h.fundTarget || 0;
+    });
+    var solvency = houses.reduce(function(sum, h) { return sum + (h.apartments || 0); }, 0);
+    var plannedWorks = expenseItems.filter(function(e) { return e.status === "planned" || e.status === "in_progress"; })
+        .reduce(function(sum, e) { return sum + e.amount; }, 0);
+
+    document.getElementById("tariffSummary").innerHTML =
+        '<div class="tariff-summary-card"><div class="num">' + formatMoney(totalCollected) + '</div><div class="label">собрано, тыс. руб.</div></div>' +
+        '<div class="tariff-summary-card"><div class="num">' + formatMoney(totalNeeded) + '</div><div class="label">требуется, тыс. руб.</div></div>' +
+        '<div class="tariff-summary-card"><div class="num">' + solvency + '</div><div class="label">квартир в управлении</div></div>' +
+        '<div class="tariff-summary-card"><div class="num">' + formatMoney(plannedWorks) + '</div><div class="label">запланировано работ, тыс. руб.</div></div>';
+
+    var tariffHtml = '<thead><tr><th>Услуга</th><th>Тариф</th><th>Ед. изм.</th><th>Описание</th></tr></thead><tbody>';
+    tariffRates.forEach(function(t) {
+        tariffHtml += '<tr><td>' + t.service + '</td><td class="tariff-rate">' + t.rate.toFixed(2) + ' ' + t.unit + '</td><td>' + t.unit + '</td><td>' + t.desc + '</td></tr>';
+    });
+    tariffHtml += '</tbody>';
+    document.getElementById("tariffTable").innerHTML = tariffHtml;
+
+    var expenseHtml = '<thead><tr><th>Год</th><th>Статья расходов</th><th>Сумма, тыс. руб.</th><th>Статус</th></tr></thead><tbody>';
+    expenseItems.slice().reverse().forEach(function(e) {
+        var statusLabels = { done: "выполнено", in_progress: "в работе", planned: "запланировано" };
+        expenseHtml += '<tr>' +
+            '<td>' + e.year + '</td><td>' + e.item + '</td><td>' + formatMoney(e.amount) + '</td>' +
+            '<td><span class="expense-status ' + e.status + '">' + (statusLabels[e.status] || e.status) + '</span></td></tr>';
+    });
+    expenseHtml += '</tbody>';
+    document.getElementById("expenseTable").innerHTML = expenseHtml;
+
+    var payHouse = document.getElementById("payHouse");
+    if (payHouse) {
+        payHouse.innerHTML = '<option value="">Выберите дом</option>' +
+            houses.map(function(h) { return '<option value="' + h.id + '">' + h.address + '</option>'; }).join("");
+    }
+
+    document.getElementById("paymentForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        var houseId = parseInt(document.getElementById("payHouse").value);
+        var house = houses.find(function(h) { return h.id === houseId; });
+        var amount = parseFloat(document.getElementById("payAmount").value);
+        var purpose = document.getElementById("payPurpose");
+        var purposeText = purpose.options[purpose.selectedIndex].text;
+
+        var resultDiv = document.getElementById("paymentResult");
+        resultDiv.style.display = "block";
+        resultDiv.innerHTML = '<div style="background:#F0FFF4;border:1px solid #C6F6D5;border-radius:8px;padding:1rem;text-align:center;">' +
+            '<p style="color:#276749;font-weight:600;margin-bottom:0.5rem;">Квитанция сформирована</p>' +
+            '<p style="font-size:0.88rem;color:#4A5568;margin-bottom:0.3rem;">' + (house ? house.address : "") + ', кв. ' + document.getElementById("payApartment").value + '</p>' +
+            '<p style="font-size:0.88rem;color:#4A5568;margin-bottom:0.3rem;">Назначение: ' + purposeText + '</p>' +
+            '<p style="font-size:1.1rem;font-weight:700;color:#2D3748;">' + amount.toLocaleString("ru-RU") + ' руб.</p>' +
+            '<p style="font-size:0.82rem;color:#A0AEC0;margin-top:0.5rem;">Оплатить можно в любом банке или через мобильное приложение по реквизитам УК.</p>' +
+            '</div>';
+    });
+
+    var hamburger = document.getElementById("hamburger");
+    var nav = document.querySelector("nav");
+    if (hamburger && nav) {
+        hamburger.addEventListener("click", function() { nav.classList.toggle("open"); });
+    }
+
+    var header = document.querySelector("header");
+    window.addEventListener("scroll", function() {
+        if (window.scrollY > 10) { header.classList.add("scrolled"); }
+        else { header.classList.remove("scrolled"); }
+    });
+});
+</script>
+</body>
+</html>

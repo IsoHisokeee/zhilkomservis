@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход — ЖилКомСервис</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="index.html" class="logo">ЖилКом<span>Сервис</span></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">На главную</a></li>
+                <li><a href="houses.html">Дома</a></li>
+                <li><a href="tariffs.html">Тарифы</a></li>
+                <li><a href="requests.html">Статус</a></li>
+                <li><a href="about.html">Контакты</a></li>
+                <li><a href="profile.html">Кабинет</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="auth-page">
+    <div class="auth-form" id="loginFormContainer">
+        <h2>Вход</h2>
+        <p class="subtitle">Войдите, чтобы подавать заявки</p>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="example@mail.ru">
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" required placeholder="Пароль">
+            </div>
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </form>
+        <p class="auth-link">Нет аккаунта? <a href="#" id="showRegister">Зарегистрироваться</a></p>
+        <p class="auth-link" style="margin-top:0.5rem;font-size:0.82rem;color:#A0AEC0;">admin@uk.ru / admin123</p>
+    </div>
+
+    <div class="auth-form" id="registerFormContainer" style="display:none;">
+        <h2>Регистрация</h2>
+        <p class="subtitle">Создайте аккаунт жителя</p>
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="regName">Имя и фамилия</label>
+                <input type="text" id="regName" required placeholder="Иванов Иван">
+            </div>
+            <div class="form-group">
+                <label for="regEmail">Email</label>
+                <input type="email" id="regEmail" required placeholder="example@mail.ru">
+            </div>
+            <div class="form-group">
+                <label for="regPassword">Пароль</label>
+                <input type="password" id="regPassword" required placeholder="Не менее 6 символов" minlength="6">
+            </div>
+            <div class="form-group">
+                <label for="regPasswordConfirm">Подтверждение пароля</label>
+                <input type="password" id="regPasswordConfirm" required placeholder="Повторите пароль">
+            </div>
+            <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+        </form>
+        <p class="auth-link">Уже есть аккаунт? <a href="#" id="showLogin">Войти</a></p>
+    </div>
+</section>
+
+<script src="js/data.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    initData();
+
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        var email = document.getElementById("email").value.trim();
+        var password = document.getElementById("password").value;
+        var encoded = btoa(password);
+
+        var user = users.find(function(u) { return u.email === email && u.password === encoded; });
+
+        if (user) {
+            currentUser = user;
+            sessionStorage.setItem("zks_current", JSON.stringify(user));
+            showToast("Вход выполнен", "success");
+            setTimeout(function() { window.location.href = "index.html"; }, 500);
+        } else {
+            showToast("Неверный email или пароль", "error");
+        }
+    });
+
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        var name = document.getElementById("regName").value.trim();
+        var email = document.getElementById("regEmail").value.trim();
+        var password = document.getElementById("regPassword").value;
+
+        if (users.find(function(u) { return u.email === email; })) {
+            showToast("Пользователь с таким email уже существует", "error");
+            return;
+        }
+
+        if (password.length < 6) {
+            showToast("Пароль должен быть не менее 6 символов", "error");
+            return;
+        }
+
+        if (password !== document.getElementById("regPasswordConfirm").value) {
+            showToast("Пароли не совпадают", "error");
+            return;
+        }
+
+        if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+            showToast("Пароль должен содержать хотя бы один специальный символ (!@#$%^&*)", "error");
+            return;
+        }
+
+        users.push({
+            name: name,
+            email: email,
+            password: btoa(password),
+            isAdmin: false,
+            registeredAt: new Date().toISOString().split("T")[0]
+        });
+        saveUsers();
+        showToast("Регистрация успешна! Войдите в аккаунт", "success");
+        setTimeout(function() { window.location.href = "auth.html"; }, 500);
+    });
+
+    document.getElementById("showRegister").addEventListener("click", function(e) {
+        e.preventDefault();
+        document.getElementById("loginFormContainer").style.display = "none";
+        document.getElementById("registerFormContainer").style.display = "block";
+    });
+
+    document.getElementById("showLogin").addEventListener("click", function(e) {
+        e.preventDefault();
+        document.getElementById("registerFormContainer").style.display = "none";
+        document.getElementById("loginFormContainer").style.display = "block";
+    });
+});
+</script>
+</body>
+</html>
